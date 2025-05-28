@@ -111,6 +111,7 @@ Changing the amount of training data that was split into validation and training
 #### ***4. Prediction and Results***
 
 ## <u><p align=center>**Final ML Pipeline Model**</u>
+This model improves and combines both the first and second models to produce higher accuracies in identifications.
 
 #### ***1. Data Collection***
 
@@ -125,9 +126,20 @@ Changing the amount of training data that was split into validation and training
 ### <u><p align=center> **Future work**</u>
 
 ### <u><p align=center> **Libraries and Modules**</u>
+#### Libraries:
+- **Numpy:**
+- **Matplotlib:**
+- **Tensoreflow:**
+- **Keras:**
+
+#### Modules:
+-
+
 
 ### <u><p align=center> **Issues and Bugs**</u>
+Most issues occured during the construction of the code such as wrong labels used in certain functions. 
 
+However, some bugs occur from the python kernel itself. In some cases the kernel would need a refresh before running the code so that results could appear.
 ### <u><p align=center> **Conclusions**</u>
 
 ##### <u><p align=center>  **References and Acknowledgments**</u>
