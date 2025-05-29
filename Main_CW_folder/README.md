@@ -102,6 +102,10 @@ Changing the amount of training data that was split into validation and training
 
 ## <u><p align=center>**Second ML Pipeline Model**</u>
 
+#### **Overall Code:**
+``` python
+
+```
 #### ***1. Data Collection***
 
 #### ***2. EDA***
@@ -112,6 +116,11 @@ Changing the amount of training data that was split into validation and training
 
 ## <u><p align=center>**Final ML Pipeline Model**</u>
 This model improves and combines both the first and second models to produce higher accuracies in identifications.
+
+#### **Overall acode:**
+``` python
+
+```
 
 #### ***1. Data Collection***
 
@@ -127,13 +136,21 @@ This model improves and combines both the first and second models to produce hig
 
 ### <u><p align=center> **Libraries and Modules**</u>
 #### Libraries:
-- **Numpy:**
+- **NumPy:**
+NumPy is a python library used for numerical operations and especially for array management. 
 - **Matplotlib:**
-- **Tensoreflow:**
+This library is mostly used for visualization and plotting data nad results. 
+- **Tensorflow:**
+The main library used for machine learning within this code. It's usually used for deep leaning and neural networks. This is used within the codes to provide the CIFAR 100 dataset (through Keras) as well as the network creation, compilation and training. 
 - **Keras:**
+This library is built ontop of Tensorflow and is used for defining and training neural netweorks. Within the code it has been used to provide the CIFAR 100 dataset, components to the CNN model, such as layers, and utilities like ``` to_categorical``` for one hot encoding.
+- **sklearn:**
+Sklearn library provides the tools to split data (e.g. training and validation data) as well to evaluate models.
 
 #### Modules:
--
+- **keras.datasets:**
+This module is used to access popular datasets like CIFAR 10 nad CIFAR 100.
+-  
 
 
 ### <u><p align=center> **Issues and Bugs**</u>
