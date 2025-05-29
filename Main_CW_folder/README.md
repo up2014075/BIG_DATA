@@ -130,7 +130,7 @@ This training is conducted over 25 epochs using batch processing, as a method fo
 
 This gives out data that is from monitoring the training and validation accuracy and loss per epoch.
 
-#### ***5. Prediction and Results***
+#### ***5. Prediction, Results and Evaluation***
 ```python
 test_loss, test_accuracy = model.evaluate(x_test, ytest_categories)
 print(f"Test accuracy: {test_accuracy * 100:.2f}%")
@@ -185,7 +185,7 @@ model = keras.models.Sequential([
 
 #### ***4. Training***
 
-#### ***5. Prediction and Results***
+#### ***5. Prediction, Results and Evaluation***
 
 ## <u><p align=center>**Third ML Pipeline Model**</u>
 This model improves and combines both the first and second models to produce higher accuracies in identifications.
@@ -203,14 +203,16 @@ This model improves and combines both the first and second models to produce hig
 
 #### ***4. Training***
 
-#### ***5. Prediction and Results***
+#### ***5. Prediction, Results and Evaluation***
 
 
 
 ### <u><p align=center> **Future work**</u>
 With a working model the primary objectives for future work would be to improve the processing time taken, when training the model, for each epoch as well as increasing the accuracy.
 
-Processing time could be cut by introducing batch normalization 
+Processing time could be cut by introducing batch normalization, which normalizes layer input making training faster and more stable. 
+
+On the other hand, to increase accuracy, while still keeping a CNN style architecture can be done using image augmentation. Through augmentation the training can be enhanced, while also reducing overfitting.
 
 ### <u><p align=center> **Libraries and Modules**</u>
 #### Libraries:
@@ -255,3 +257,4 @@ The different overall codes and CNN models have also given a basic understanding
 - *Categorical Cross-Entropy:* `Loss` function specifically designed for multi-class classification problems, that measures discrepancy between predicted probability distributions and true distributions that are represented through as one hot encoded vector.
 - *Convergence:* Referring to the condition where optimization alogrithm reaches a stable state. This seen with characteristics such as minimal changes in loss values between each epoch. This means model has adequetly learned the patterns.
 - *Augmnetation:* Is a method that adds more data by modifying current data through transformations. This increases the amount of data for training.
+- *Normalization:* This is when data is converted to a more standard/uniform format so that it can be easier to work with and analyze.
