@@ -90,7 +90,7 @@ test_loss, test_accuracy = model.evaluate(x_test, ytest_categories)
 print(f"Test accuracy: {test_accuracy * 100:.2f}%") 
 ```
 
-#### ***1. Data Collection***
+#### ***1. Data Collection and Processing***
 The CIFAR 100 dataset, that was planned on being used, was going to be from the tensor flow (Keras) library using the ``` cifar100.load_data() ``` from ```tensorflow.keras.datasets```.
 
 #### ***2. Exploratory Data Analysis (EDA)***
@@ -178,7 +178,7 @@ model = keras.models.Sequential([
 ``` python
 
 ```
-#### ***1. Data Collection***
+#### ***1. Data Collection and Processing***
 
 #### ***2. EDA***
 
@@ -191,12 +191,12 @@ model = keras.models.Sequential([
 ## <u><p align=center>**Final ML Pipeline Model**</u>
 This model improves and combines both the first and second models to produce higher accuracies in identifications.
 
-#### **Overall acode:**
+#### **Overall Code:**
 ``` python
 
 ```
 
-#### ***1. Data Collection***
+#### ***1. Data Collection and Processing***
 
 #### ***2. EDA***
 
@@ -240,5 +240,6 @@ However, some bugs occur from the python kernel itself. In some cases the kernel
 ### <u><p align=center>  **References and Acknowledgments**</u>
 
 ### <u><p align=center>  **Terms and Definitions**</u>
-- *Overfitting:* 
-- *Epoch:* 
+- *Overfitting:* Situation where model learns training too well, including the noise and random fluctuations, that then results in poor generalization of new unseen data.  
+- *Epoch:* Means a complete pass through of the entire training dataset during training phase. 
+- *One-Hot Encoding:* A representation method that converts categorical variables into binary vectors. In this case it turns data from the categorical labels to binary vectors.
