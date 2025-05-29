@@ -187,7 +187,7 @@ model = keras.models.Sequential([
 
 #### ***5. Prediction and Results***
 
-## <u><p align=center>**Final ML Pipeline Model**</u>
+## <u><p align=center>**Third ML Pipeline Model**</u>
 This model improves and combines both the first and second models to produce higher accuracies in identifications.
 
 #### **Overall Code:**
