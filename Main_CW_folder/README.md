@@ -22,7 +22,6 @@ To have a relatively accurate model; a basic model, that at least functions, had
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-import plotly.express as px
 import tensorflow as tf
 from tensorflow import keras
 from keras import datasets, layers, models
@@ -102,10 +101,10 @@ print(y_test.shape)
 
 show_samples(x_train, y_train)
 ```
-This section prints the shape of the training and test datasets to confirm dimension. It also shows a random sample image from the dataset using the Matplotlib. 
+This section prints and displays the shape of the training and test datasets to confirm dimension. It also shows a random sample image from the dataset using the Matplotlib. 
 
 #### ***3. CNN model***
-To filter out the data and patterns from the images, a layered architecture was implemented:
+To filter the data and patterns from the images, a layered architecture was implemented:
 
 - Convolutional layering (`Conv2D`) was first used to extract features from the images by applying filters.
 - Pooling Layers (`Maxpooling2D`) was then used to reduce spatial dimensions in feature maps.
@@ -209,6 +208,9 @@ This model improves and combines both the first and second models to produce hig
 
 
 ### <u><p align=center> **Future work**</u>
+With a working model the primary objectives for future work would be to improve the processing time taken, when training the model, for each epoch as well as increasing the accuracy.
+
+Processing time could be cut by introducing batch normalization 
 
 ### <u><p align=center> **Libraries and Modules**</u>
 #### Libraries:
@@ -227,15 +229,22 @@ Sklearn library provides the tools to split data (e.g. training and validation d
 - **keras.datasets:**
 This module is used to access popular datasets like CIFAR 10 nad CIFAR 100.
 - **Keras.utils:**
+Provides utilities for handling and preprocessing data like one-hot encoding.
 - **Keras.layers:**
+Module for defining various neural network layers, like a filtering system.
 - **Keras.models:**
+This allows neural network models to be defined, compiled and managed.
 - **tensorflow.keras.datasets:**
+same as `keras.datasets` as it provides specific dataset loaders.
 
 ### <u><p align=center> **Issues and Bugs**</u>
 Most issues occured during the construction of the code such as wrong labels used in certain functions. 
 
 However, some bugs occur from the python kernel itself. In some cases the kernel would need a refresh before running the code so that results could appear.
 ### <u><p align=center> **Conclusions**</u>
+Over this project, a model has successfully been created that predicts and identifies, with a 39% accuracy, images from the CIFAR 100 dataset into a certain category.
+
+The different overall codes and CNN models have also given a basic understanding of data processing for ML pipelines and CNN architecture, when used for real world applications such as image identificators.
 
 ### <u><p align=center>  **References and Acknowledgments**</u>
 
@@ -243,3 +252,6 @@ However, some bugs occur from the python kernel itself. In some cases the kernel
 - *Overfitting:* Situation where model learns training too well, including the noise and random fluctuations, that then results in poor generalization of new unseen data.  
 - *Epoch:* Means a complete pass through of the entire training dataset during training phase. 
 - *One-Hot Encoding:* A representation method that converts categorical variables into binary vectors. In this case it turns data from the categorical labels to binary vectors.
+- *Categorical Cross-Entropy:* `Loss` function specifically designed for multi-class classification problems, that measures discrepancy between predicted probability distributions and true distributions that are represented through as one hot encoded vector.
+- *Convergence:* Referring to the condition where optimization alogrithm reaches a stable state. This seen with characteristics such as minimal changes in loss values between each epoch. This means model has adequetly learned the patterns.
+- *Augmnetation:* Is a method that adds more data by modifying current data through transformations. This increases the amount of data for training.
