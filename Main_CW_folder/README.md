@@ -91,15 +91,87 @@ print(f"Test accuracy: {test_accuracy * 100:.2f}%")
 ```
 
 #### ***1. Data Collection***
-The CIFAR 100 dataset, that was planned on being used, was going to be from the tensor flow library.
+The CIFAR 100 dataset, that was planned on being used, was going to be from the tensor flow (Keras) library using the ``` cifar100.load_data() ``` from ```tensorflow.keras.datasets```.
 
-#### ***2. EDA***
+#### ***2. Exploratory Data Analysis (EDA)***
+``` python
+print(x_train.shape)
+print(y_train.shape)
+print(x_test.shape)
+print(y_test.shape)
+
+show_samples(x_train, y_train)
+```
+This section prints the shape of the training and test datasets to confirm dimension. It also shows a random sample image from the dataset using the Matplotlib. 
 
 #### ***3. CNN model***
+To filter out the data and patterns from the images, a layered architecture was implemented:
 
-#### ***4. Prediction and Results***
+- Convolutional layering (`Conv2D`) was first used to extract features from the images by applying filters.
+- Pooling Layers (`Maxpooling2D`) was then used to reduce spatial dimensions in feature maps.
+- Flattening layers (`Flatten`) transformed 2D feature maps into 1D vectors.
+- `Dense` Layers were then applied to connect the layers to be classified.
+- `Dropout` layer prevented overfitting by randomly setting nodes to zer during the training phase.
+
+To ensure the model was ready for training it had to be compiled using:
+```python
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+```
+- Optimizer (`Adam`) is an adaptive optimizer that dynamically adjusts parameter updates based momentary estimation, convergence speed and model performance.
+- The `loss` function, with `categorical_crossentropy`, quantifies the difference between predicted distributions and the actual labels.
+- The `Metric` measures the fraction of correct predictions providing a performance metric for the model's overall effectiveness.
+
+#### ***4. Training Model***
+```python
+history = model.fit(x_train, ytrain_categories, epochs=25, batch_size=64, validation_data=(x_val, yval_categories))
+```
+This training is conducted over 25 epochs using batch processing, as a method for more effeicient computation.
+
+This gives out data that is from monitoring the training and validation accuracy and loss per epoch.
+
+#### ***5. Prediction and Results***
+```python
+test_loss, test_accuracy = model.evaluate(x_test, ytest_categories)
+print(f"Test accuracy: {test_accuracy * 100:.2f}%")
+```
+The model was then finally tested and evaluated with unseen test data.
+
+Base accuracy result, after running the model, was 36.9%.
+
 Changing the amount of training data that was split into validation and training produced significant changes to accuracy. Compared to the original 90-10 split (training-validation), a split of 85-15 produced accuracies of 33.9, while a split of 95-5 produced 36.6%.
 
+Increasing width and range of the convolution and other related layers resulted in higher accuracies of around 39%:
+```python 
+model = keras.models.Sequential([
+    keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2,2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(128, activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(100, activation='softmax')
+]) 
+```
+was turned to
+``` python 
+model = keras.models.Sequential([
+    keras.layers.Conv2D(64, (3, 3), activation='relu', input_shape=(32, 32, 3)),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2,2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(256, activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(100, activation='softmax')
+])
+```
 ## <u><p align=center>**Second ML Pipeline Model**</u>
 
 #### **Overall Code:**
@@ -112,7 +184,9 @@ Changing the amount of training data that was split into validation and training
 
 #### ***3. CNN model***
 
-#### ***4. Prediction and Results***
+#### ***4. Training***
+
+#### ***5. Prediction and Results***
 
 ## <u><p align=center>**Final ML Pipeline Model**</u>
 This model improves and combines both the first and second models to produce higher accuracies in identifications.
@@ -128,7 +202,9 @@ This model improves and combines both the first and second models to produce hig
 
 #### ***3. CNN model***
 
-#### ***4. Prediction and Results***
+#### ***4. Training***
+
+#### ***5. Prediction and Results***
 
 
 
@@ -150,8 +226,10 @@ Sklearn library provides the tools to split data (e.g. training and validation d
 #### Modules:
 - **keras.datasets:**
 This module is used to access popular datasets like CIFAR 10 nad CIFAR 100.
--  
-
+- **Keras.utils:**
+- **Keras.layers:**
+- **Keras.models:**
+- **tensorflow.keras.datasets:**
 
 ### <u><p align=center> **Issues and Bugs**</u>
 Most issues occured during the construction of the code such as wrong labels used in certain functions. 
@@ -159,4 +237,8 @@ Most issues occured during the construction of the code such as wrong labels use
 However, some bugs occur from the python kernel itself. In some cases the kernel would need a refresh before running the code so that results could appear.
 ### <u><p align=center> **Conclusions**</u>
 
-##### <u><p align=center>  **References and Acknowledgments**</u>
+### <u><p align=center>  **References and Acknowledgments**</u>
+
+### <u><p align=center>  **Terms and Definitions**</u>
+- *Overfitting:* 
+- *Epoch:* 
