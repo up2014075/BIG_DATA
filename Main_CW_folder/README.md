@@ -262,7 +262,7 @@ Sklearn library provides the tools to split data (e.g. training and validation d
 
 #### Modules:
 - **keras.datasets:**
-This module is used to access popular datasets like CIFAR 10 nad CIFAR 100.
+This module is used to access popular datasets like CIFAR 10 and CIFAR 100.
 - **Keras.utils:**
 Provides utilities for handling and preprocessing data like one-hot encoding.
 - **Keras.layers:**
