@@ -251,7 +251,7 @@ The different overall codes and CNN models have also given a basic understanding
 
 (https://github.com/LeoTungAnh/CNN-CIFAR-100/blob/main/CNN_models.ipynb) This example of an existing CIFAR 100 was used to understand data processing and implementing one-hot encoding during the creation of the first model.
 
-(https://github.com/uzairlol/CIFAR100-Image-Classification-CNN/blob/main/Item%20Image%20Model%20Training%20and%20Evaluation.ipynb)
+(https://github.com/uzairlol/CIFAR100-Image-Classification-CNN/blob/main/Item%20Image%20Model%20Training%20and%20Evaluation.ipynb) Another example was used, for model one, to produce the CNN architecture through the different layering modules.
 
 
 ### <u><p align=center>  **Terms and Definitions**</u>
