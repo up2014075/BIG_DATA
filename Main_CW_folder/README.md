@@ -245,7 +245,7 @@ With a working model the primary objectives for future work would be to improve 
 
 Processing time could be cut by introducing batch normalization, which normalizes layer input making training faster and more stable. 
 
-On the other hand, to increase accuracy, while still keeping a CNN style architecture can be done using image augmentation. Through augmentation the training can be enhanced, while also reducing overfitting.
+On the other hand, to increase accuracy, image augmentation can be used to keep the same CNN architecture and prevent the need of other model architectures. Through augmentation the training can be enhanced, while also reducing overfitting.
 
 ### <u><p align=center> **Libraries and Modules**</u>
 #### Libraries:
