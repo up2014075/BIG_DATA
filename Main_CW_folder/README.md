@@ -31,16 +31,19 @@ from keras.utils import to_categorical
 from keras.layers import MaxPooling2D, Conv2D, Flatten, Dense, Dropout, Activation
 from sklearn.model_selection import train_test_split
 
+#Load data
 (x_train, y_train), (x_test, y_test) = cifar100.load_data()
 
+#Checking data and array shape 
 print(x_train.shape)
 print(y_train.shape)
 print(x_test.shape)
 print(y_test.shape)
 
+#Splitting training data into training and validation
 x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.1, random_state=42)
 
-## https://www.geeksforgeeks.org/image-classification-using-cifar-10-and-cifar-100-dataset-in-tensorflow/
+#https://www.geeksforgeeks.org/image-classification-using-cifar-10-and-cifar-100-dataset-in-tensorflow/
 def show_samples(data, labels):
     plt.subplots(figsize=(10, 10))
     for i in range(12):
@@ -53,17 +56,23 @@ def show_samples(data, labels):
 
 show_samples(x_train, y_train)
 
-## https://github.com/LeoTungAnh/CNN-CIFAR-100/blob/main/CNN_models.ipynb
+
+#Processing data 
+#Converting pixels to float type
+#https://github.com/LeoTungAnh/CNN-CIFAR-100/blob/main/CNN_models.ipynb
 x_train = x_train.astype('float32') / 255.
 x_val = x_val.astype('float32') / 255.
-x_test = x_test.astype('float32') / 255. 
+x_test = x_test.astype('float32') / 255.
 
+#One hot encoding to target classes 
 classes = 100
 ytrain_categories = to_categorical(y_train, num_classes=100)
 yval_categories = to_categorical(y_val, num_classes=100)
 ytest_categories = to_categorical(y_test, num_classes=100)
 
-## https://github.com/uzairlol/CIFAR100-Image-Classification-CNN/blob/main/Item%20Image%20Model%20Training%20and%20Evaluation.ipynb
+#Building CNN model 
+#Uses layers as a 'filtering' system that making model learn based on patterns from training
+#https://github.com/uzairlol/CIFAR100-Image-Classification-CNN/blob/main/Item%20Image%20Model%20Training%20and%20Evaluation.ipynb
 model = keras.models.Sequential([
     keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)),
     keras.layers.MaxPooling2D((2, 2)),
@@ -79,14 +88,37 @@ model = keras.models.Sequential([
 
 model.summary()
 
+
+#Beginning the training of model
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 
+#Main training section
+#chatgpt helped to structure how model can undergo training
 history = model.fit(x_train, ytrain_categories, epochs=25, batch_size=64, validation_data=(x_val, yval_categories))
 
 test_loss, test_accuracy = model.evaluate(x_test, ytest_categories)
-print(f"Test accuracy: {test_accuracy * 100:.2f}%") 
+print(f"Test accuracy: {test_accuracy * 100:.2f}%")
+
+#Visualisation of results through graphs using matplotlib
+plt.figure(figsize=(10,5))
+plt.subplot(1,2,1)
+plt.plot(history.history['accuracy'], label='Training Accuracy')
+plt.title('Accuracy over Epochs')
+plt.xlabel('Epoch Number')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.grid(True)
+
+plt.subplot(1,2,2)
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Loss over Epochs')
+plt.xlabel('Epoch Number')
+plt.ylabel('Loss')
+plt.legend()
+plt.grid(True)
 ```
 
 #### ***1. Data Collection and Processing***
