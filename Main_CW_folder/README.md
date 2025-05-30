@@ -203,6 +203,7 @@ model = keras.models.Sequential([
     keras.layers.Dense(100, activation='softmax')
 ])
 ```
+Increasing the Epoch to 50 and 100 also did result in an increase in accuracy, by 1-2%, as it did allow more runs through the training data. This in turn allowed the accuracy of the model to plateau and stabilise at its maximum. However, this method only allowed the performance to reach its maximum rather than actually amplifying the performance.
 ## <u><p align=center>**Second ML Pipeline Model**</u>
 
 #### **Overall Code:**
