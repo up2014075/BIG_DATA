@@ -15,7 +15,7 @@ The purpose of the project is to create and evaluate a CNN model, that is capabl
 
 ## <u><p align=center>**First ML Pipeline Model**</u>
 
-To have a relatively accurate model; a basic model, that at least functions, had to be established first.
+To understand how the model works; a basic model, that at least functions, had to be established first.
 
 #### **Overall code:**
 
@@ -90,7 +90,7 @@ print(f"Test accuracy: {test_accuracy * 100:.2f}%")
 ```
 
 #### ***1. Data Collection and Processing***
-The CIFAR 100 dataset, that was planned on being used, was going to be from the tensor flow (Keras) library using the ``` cifar100.load_data() ``` from ```tensorflow.keras.datasets```.
+The CIFAR 100 dataset, that was planned on being used, was going to be from the tensor flow (Keras) library using the ``` cifar100.load_data() ``` from ```tensorflow.keras.datasets```. Tensor flow was a much smoother option compared to the process of unpickling, when retrieving it from another source.
 
 #### ***2. Exploratory Data Analysis (EDA)***
 ``` python
@@ -239,19 +239,24 @@ This allows neural network models to be defined, compiled and managed.
 - **tensorflow.keras.datasets:**
 same as `keras.datasets` as it provides specific dataset loaders.
 
-### <u><p align=center> **Issues and Bugs**</u>
-Most issues occured during the construction of the code such as wrong labels used in certain functions. 
-
-However, some bugs occur from the python kernel itself. In some cases the kernel would need a refresh before running the code so that results could appear.
+### <u><p align=center> **Unresolved Issues and Bugs**</u>
+Most issues occured during the construction of the code such as wrong labels used in certain functions. However, some issues did occur from the python kernel itself. In some cases the kernel would crash and required a refresh before running the code so that it could function again. Possible causes could be because of internet connection issues or amount of space of the cpu.
 ### <u><p align=center> **Conclusions**</u>
 Over this project, a model has successfully been created that predicts and identifies, with a 39% accuracy, images from the CIFAR 100 dataset into a certain category.
 
 The different overall codes and CNN models have also given a basic understanding of data processing for ML pipelines and CNN architecture, when used for real world applications such as image identificators.
 
 ### <u><p align=center>  **References and Acknowledgments**</u>
+(https://www.geeksforgeeks.org/image-classification-using-cifar-10-and-cifar-100-dataset-in-tensorflow/) This source helped to structure and show the EDA for the frist model
+
+(https://github.com/LeoTungAnh/CNN-CIFAR-100/blob/main/CNN_models.ipynb) This example of an existing CIFAR 100 was used to understand data processing and implementing one-hot encoding during the creation of the first model.
+
+(https://github.com/uzairlol/CIFAR100-Image-Classification-CNN/blob/main/Item%20Image%20Model%20Training%20and%20Evaluation.ipynb)
+
 
 ### <u><p align=center>  **Terms and Definitions**</u>
-- *Overfitting:* Situation where model learns training too well, including the noise and random fluctuations, that then results in poor generalization of new unseen data.  
+- *Overfitting:* Situation where model learns training too well, including the noise and random fluctuations, that then results in poor generalization of new unseen data. 
+- *Optimizer:* An algorithm employed during training phase to minimize loss function by iterative updates to model parameters. 
 - *Epoch:* Means a complete pass through of the entire training dataset during training phase. 
 - *One-Hot Encoding:* A representation method that converts categorical variables into binary vectors. In this case it turns data from the categorical labels to binary vectors.
 - *Categorical Cross-Entropy:* `Loss` function specifically designed for multi-class classification problems, that measures discrepancy between predicted probability distributions and true distributions that are represented through as one hot encoded vector.
